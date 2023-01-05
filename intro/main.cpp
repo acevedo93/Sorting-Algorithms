@@ -4,22 +4,39 @@
 using namespace std;
 
 int main() {
-    int values [] = {16,23,45,12};
-    int sizeArrray =  sizeof(values) / sizeof(int);
-    for (int i = 0; i < sizeArrray - 1; i++) {
-        for( int j = i+1; j < sizeArrray - i - 1; j++) {
-            if (values[i] > values[j]){
-                int temporalValue = values[j];
-                values[j] = values[i];
-                values[i] = temporalValue;
+    
+    int i, j, temp, sizeArray;
+    cout << "Enter size of array " << endl;
+    cin >> sizeArray;
+    int values[sizeArray];
+    
+    cout << "enter array values"<< endl;
+    
+    // Load array
+    for ( int k = 0; k < sizeArray; k++ ) {
+        cout << "values of [" << k << "]" << endl;
+        cin >> values[k];
+    }
+    
+    for (i = 0; i < sizeArray-1; i++) {
+        for ( j = 0; j < sizeArray-1; j++) {
+            if (values[i] > values[i + 1]) {
+                temp = values[i+1];
+                values[i+1] = values[i];
+                values[i] = temp;
             }
         }
     }
     
-    for (int i = 0; i <= sizeArrray; i++) {
-        cout << values[i]<< endl;
+    //Show array
+    
+    cout << "Result with bubble sort" << endl;
+    
+    for (int i = 0; i <= sizeArray ; i++) {
+        cout << values[i] << endl;
     }
     
+   
     return 0;
 }
 
